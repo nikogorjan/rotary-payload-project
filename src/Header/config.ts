@@ -2,6 +2,7 @@ import type { GlobalConfig } from 'payload'
 
 import { link } from '@/fields/link'
 import { revalidateHeader } from './hooks/revalidateHeader'
+import { linkGroup } from '@/fields/linkGroup'
 
 export const Header: GlobalConfig = {
   slug: 'header',
@@ -9,6 +10,13 @@ export const Header: GlobalConfig = {
     read: () => true,
   },
   fields: [
+    {
+      name: 'rotaryLogo',
+      type: 'upload',
+      label: 'Rotary Logo',
+      relationTo: 'media',
+      required: false,
+    },
     {
       name: 'navItems',
       type: 'array',
@@ -25,6 +33,11 @@ export const Header: GlobalConfig = {
         },
       },
     },
+    linkGroup({
+      overrides: {
+        maxRows: 1,
+      },
+    }),
   ],
   hooks: {
     afterChange: [revalidateHeader],

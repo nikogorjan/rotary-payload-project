@@ -43,6 +43,79 @@ export const hero: Field = {
       required: true,
     },
     {
+      name: 'landingHeroProps',
+      type: 'group',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'landingHero',
+      },
+      fields: [
+        {
+          name: 'tagline',
+          type: 'group',
+          label: 'Tagline',
+          fields: [
+            {
+              name: 'label',
+              type: 'text',
+              label: 'Tagline Label',
+              required: true,
+            },
+            {
+              name: 'media',
+              type: 'upload',
+              label: 'Tagline Media',
+              relationTo: 'media',
+              required: false,
+            },
+          ],
+        },
+        {
+          name: 'heading',
+          type: 'text',
+          label: 'Heading',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
+        linkGroup({
+          overrides: {
+            maxRows: 2,
+          },
+        }),
+        {
+          name: 'logos',
+          type: 'group',
+          label: 'Logos',
+          fields: [
+            {
+              name: 'martjanciLogo',
+              type: 'upload',
+              label: 'Martjanci Logo',
+              relationTo: 'media',
+              required: false,
+            },
+            {
+              name: 'rotaryLogo',
+              type: 'upload',
+              label: 'Rotary Logo',
+              relationTo: 'media',
+              required: false,
+            },
+          ],
+        },
+        {
+          name: 'image',
+          type: 'upload',
+          label: 'Image',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
       name: 'richText',
       type: 'richText',
       editor: lexicalEditor({
@@ -56,10 +129,16 @@ export const hero: Field = {
         },
       }),
       label: false,
+      admin: {
+        condition: (_, siblingData) => siblingData?.type !== 'landingHero',
+      },
     },
     linkGroup({
       overrides: {
         maxRows: 2,
+        admin: {
+          condition: (_, siblingData) => siblingData?.type !== 'landingHero',
+        },
       },
     }),
     {

@@ -1,0 +1,246 @@
+{
+    "Color": {
+      "Chathams Blue Lightest": {
+        "$type": "color",
+        "$value": "#e7ecf3"
+      },
+      "Chathams Blue Lighter": {
+        "$type": "color",
+        "$value": "#d0d9e8"
+      },
+      "Chathams Blue Light": {
+        "$type": "color",
+        "$value": "#5c7cb0"
+      },
+      "Chathams Blue": {
+        "$type": "color",
+        "$value": "#17458f"
+      },
+      "Chathams Blue Dark": {
+        "$type": "color",
+        "$value": "#123772"
+      },
+      "Chathams Blue Darker": {
+        "$type": "color",
+        "$value": "#091b39"
+      },
+      "Chathams Blue Darkest": {
+        "$type": "color",
+        "$value": "#06142a"
+      },
+      "Ship Cove Lightest": {
+        "$type": "color",
+        "$value": "#f0f3f9"
+      },
+      "Ship Cove Lighter": {
+        "$type": "color",
+        "$value": "#e2e7f3"
+      },
+      "Ship Cove Light": {
+        "$type": "color",
+        "$value": "#99acd7"
+      },
+      "Ship Cove": {
+        "$type": "color",
+        "$value": "#6e89c6"
+      },
+      "Ship Cove Dark": {
+        "$type": "color",
+        "$value": "#586d9e"
+      },
+      "Ship Cove Darker": {
+        "$type": "color",
+        "$value": "#2c364f"
+      },
+      "Ship Cove Darkest": {
+        "$type": "color",
+        "$value": "#21293b"
+      },
+      "Abbey Lightest": {
+        "$type": "color",
+        "$value": "#edeeee"
+      },
+      "Abbey Lighter": {
+        "$type": "color",
+        "$value": "#dcddde"
+      },
+      "Abbey Light": {
+        "$type": "color",
+        "$value": "#87888b"
+      },
+      "Abbey": {
+        "$type": "color",
+        "$value": "#54565a"
+      },
+      "Abbey Dark": {
+        "$type": "color",
+        "$value": "#434448"
+      },
+      "Abbey Darker": {
+        "$type": "color",
+        "$value": "#212224"
+      },
+      "Abbey Darkest": {
+        "$type": "color",
+        "$value": "#19191b"
+      },
+      "Spindle Lightest": {
+        "$type": "color",
+        "$value": "#f8fbfd"
+      },
+      "Spindle Lighter": {
+        "$type": "color",
+        "$value": "#f1f7fb"
+      },
+      "Spindle Light": {
+        "$type": "color",
+        "$value": "#cee4f1"
+      },
+      "Spindle": {
+        "$type": "color",
+        "$value": "#b9d9eb"
+      },
+      "Spindle Dark": {
+        "$type": "color",
+        "$value": "#94adbc"
+      },
+      "Spindle Darker": {
+        "$type": "color",
+        "$value": "#4a565e"
+      },
+      "Spindle Darkest": {
+        "$type": "color",
+        "$value": "#374146"
+      },
+      "Buttercup Lightest": {
+        "$type": "color",
+        "$value": "#fef6e8"
+      },
+      "Buttercup Lighter": {
+        "$type": "color",
+        "$value": "#fdedd1"
+      },
+      "Buttercup Light": {
+        "$type": "color",
+        "$value": "#f9c25f"
+      },
+      "Buttercup": {
+        "$type": "color",
+        "$value": "#f7a81b"
+      },
+      "Buttercup Dark": {
+        "$type": "color",
+        "$value": "#c58615"
+      },
+      "Buttercup Darker": {
+        "$type": "color",
+        "$value": "#62430a"
+      },
+      "Buttercup Darkest": {
+        "$type": "color",
+        "$value": "#4a3208"
+      },
+      "White": {
+        "$type": "color",
+        "$value": "#ffffff"
+      },
+      "Neutral Lightest": {
+        "$type": "color",
+        "$value": "#f2f2f2"
+      },
+      "Neutral Lighter": {
+        "$type": "color",
+        "$value": "#d8d8d8"
+      },
+      "Neutral Light": {
+        "$type": "color",
+        "$value": "#b2b2b2"
+      },
+      "Neutral": {
+        "$type": "color",
+        "$value": "#7f7f7f"
+      },
+      "Neutral Dark": {
+        "$type": "color",
+        "$value": "#4c4c4c"
+      },
+      "Neutral Darker": {
+        "$type": "color",
+        "$value": "#191919"
+      },
+      "Neutral Darkest": {
+        "$type": "color",
+        "$value": "#000000"
+      }
+    },
+    "Opacity": {
+      "Transparent": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.0000)"
+      },
+      "White 5": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.0500)"
+      },
+      "White 10": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.1000)"
+      },
+      "White 15": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.1500)"
+      },
+      "White 20": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.2000)"
+      },
+      "White 30": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.3000)"
+      },
+      "White 40": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.4000)"
+      },
+      "White 50": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.5000)"
+      },
+      "White 60": {
+        "$type": "color",
+        "$value": "rgba(255, 255, 255, 0.6000)"
+      },
+      "Neutral Darkest 5": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.0500)"
+      },
+      "Neutral Darkest 10": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.1000)"
+      },
+      "Neutral Darkest 15": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.1500)"
+      },
+      "Neutral Darkest 20": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.2000)"
+      },
+      "Neutral Darkest 30": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.3000)"
+      },
+      "Neutral Darkest 40": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.4000)"
+      },
+      "Neutral Darkest 50": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.5000)"
+      },
+      "Neutral Darkest 60": {
+        "$type": "color",
+        "$value": "rgba(0, 0, 0, 0.6000)"
+      }
+    }
+  }
