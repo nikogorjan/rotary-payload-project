@@ -25,10 +25,15 @@ const useRelume = () => {
     setIsDropdownOpen((prev) => !prev)
   }
   const openOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(true)
+    if (!isMobile) {
+      setIsDropdownOpen(true)
+    }
   }
+
   const closeOnDesktopDropdownMenu = () => {
-    !isMobile && setIsDropdownOpen(false)
+    if (!isMobile) {
+      setIsDropdownOpen(false)
+    }
   }
   const animateMobileMenu = isMobileMenuOpen ? 'open' : 'close'
   const animateMobileMenuButtonSpan = isMobileMenuOpen ? ['open', 'rotatePhase'] : 'closed'
