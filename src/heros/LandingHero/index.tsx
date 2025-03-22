@@ -1,5 +1,10 @@
 import { Button } from '@relume_io/relume-ui'
 import type { ButtonProps } from '@relume_io/relume-ui'
+import type { Page } from '@/payload-types'
+
+import { CMSLink } from '@/components/Link'
+import { Media } from '@/components/Media'
+import RichText from '@/components/RichText'
 
 type ImageProps = {
   src: string
@@ -13,13 +18,7 @@ type Props = {
   image: ImageProps
 }
 
-export type LandingHeroProps = React.ComponentPropsWithoutRef<'section'> & Partial<Props>
-
-export const LandingHero = (props: LandingHeroProps) => {
-  const { heading, description, buttons, image } = {
-    ...LandingHeroDefaults,
-    ...props,
-  }
+export const LandingHero: React.FC<Page['hero']> = ({ landingHeroProps }) => {
   return (
     <section
       id="relume"
@@ -28,36 +27,59 @@ export const LandingHero = (props: LandingHeroProps) => {
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
-            <div className="w-full max-w-lg">
-              <h1 className="font-bebas mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
-                {heading}
+            <div className="w-full max-w-lg flex flex-col items-center justify-center">
+              <div className="flex items-center justify-center w-fit border border-neutralDarkest15 rounded-large bg-white pl-2 pr-3 py-2 gap-2 mb-6">
+                <div className="relative size-4 sm:size-5 rounded-full">
+                  <Media
+                    fill
+                    imgClassName="w-full"
+                    priority
+                    resource={landingHeroProps?.tagline.media}
+                  />
+                </div>
+                <p className="font-karla text-xs sm:text-sm">{landingHeroProps?.tagline.label}</p>
+              </div>
+              <h1 className="font-bebas mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl max-w-md">
+                {landingHeroProps?.heading}
               </h1>
-              <p className="font-karla md:text-md">{description}</p>
-              <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
-                {buttons.map((button, index) => (
-                  <Button key={index} {...button}>
-                    {button.title}
-                  </Button>
+              <p className="md:text-md font-karla max-w-md font-light">
+                {landingHeroProps?.description}
+              </p>
+              <div className="mt-6 mb-7 flex flex-col sm:flex-row w-full items-center justify-center gap-4 md:mt-8">
+                {(landingHeroProps?.links ?? []).map(({ link }, i) => (
+                  <CMSLink {...link} key={i} className="w-full sm:w-auto" />
                 ))}
+              </div>
+              <div className="flex flex-row gap-4 items-center justify-center">
+                <div className="relative mb-2 h-9 w-9">
+                  <Media
+                    fill
+                    imgClassName="relative size-full object-cover"
+                    priority
+                    resource={landingHeroProps?.logos?.martjanciLogo}
+                  />
+                </div>
+                <div className="relative mb-2 w-24 h-9">
+                  <Media
+                    fill
+                    imgClassName="relative size-full object-cover"
+                    priority
+                    resource={landingHeroProps?.logos?.rotaryLogo}
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <div>
-            <img src={image.src} className="size-full object-cover" alt={image.alt} />
+          <div className="relative w-full aspect-[16/7]">
+            <Media
+              fill
+              imgClassName="relative size-full object-cover rounded-2xl"
+              priority
+              resource={landingHeroProps?.image}
+            />
           </div>
         </div>
       </div>
     </section>
   )
-}
-
-export const LandingHeroDefaults: Props = {
-  heading: 'Medium length hero heading goes here',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.',
-  buttons: [{ title: 'Button' }, { title: 'Button', variant: 'secondary' }],
-  image: {
-    src: 'https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg',
-    alt: 'Relume placeholder image',
-  },
 }
