@@ -1,10 +1,8 @@
-import { Button } from '@relume_io/relume-ui'
 import type { ButtonProps } from '@relume_io/relume-ui'
 import type { Page } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
 
 type ImageProps = {
   src: string

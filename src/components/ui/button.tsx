@@ -22,7 +22,7 @@ const buttonVariants = cva(
         default: 'bg-chatmansBlue font-karla border border-chatmansBlue rounded-xl text-white',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
         ghost: 'hover:bg-card hover:text-accent-foreground',
-        link: 'text-primary items-start justify-start underline-offset-4 hover:underline',
+        link: 'font-bebas block py-3 text-4xl first:pt-7 lg:px-4 lg:py-2 lg:text-base first:lg:pt-2',
         outline: 'font-karla bg-white border border-neutralDarkest15 rounded-xl',
         secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
       },
