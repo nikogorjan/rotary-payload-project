@@ -1,0 +1,26 @@
+{
+    "Radius": {
+      "Small": {
+        "$type": "number",
+        "$value": 12
+      },
+      "Medium": {
+        "$type": "number",
+        "$value": 16
+      },
+      "Large": {
+        "$type": "number",
+        "$value": 32
+      }
+    },
+    "Stroke": {
+      "Border Width": {
+        "$type": "number",
+        "$value": 1
+      },
+      "Divider Width": {
+        "$type": "number",
+        "$value": 1
+      }
+    }
+  }

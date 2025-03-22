@@ -21,15 +21,18 @@ export const LandingHero = (props: LandingHeroProps) => {
     ...props,
   }
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section
+      id="relume"
+      className="px-[5%] pb-16 pt-32 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36 bg-scheme1Background"
+    >
       <div className="container">
         <div className="flex flex-col items-center">
           <div className="rb-12 mb-12 text-center md:mb-18 lg:mb-20">
             <div className="w-full max-w-lg">
-              <h1 className="mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
+              <h1 className="font-bebas mb-5 text-6xl font-bold md:mb-6 md:text-9xl lg:text-10xl">
                 {heading}
               </h1>
-              <p className="md:text-md">{description}</p>
+              <p className="font-karla md:text-md">{description}</p>
               <div className="mt-6 flex items-center justify-center gap-x-4 md:mt-8">
                 {buttons.map((button, index) => (
                   <Button key={index} {...button}>

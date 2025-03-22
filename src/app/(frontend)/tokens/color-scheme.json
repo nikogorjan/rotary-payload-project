@@ -1,0 +1,90 @@
+{
+    "Color Scheme 1": {
+      "Text": {
+        "$type": "color",
+        "$value": "{Color.Neutral Darkest}"
+      },
+      "Foreground": {
+        "$type": "color",
+        "$value": "{Color.Spindle Lightest}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Color.Spindle Lighter}"
+      },
+      "Border": {
+        "$type": "color",
+        "$value": "{Opacity.Neutral Darkest 15}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Color.Chathams Blue}"
+      }
+    },
+    "Color Scheme 2": {
+      "Text": {
+        "$type": "color",
+        "$value": "{Color.Neutral Darkest}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Color.White}"
+      },
+      "Border": {
+        "$type": "color",
+        "$value": "{Opacity.Neutral Darkest 15}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Color.Chathams Blue}"
+      },
+      "Foreground": {
+        "$type": "color",
+        "$value": "{Color.Neutral Lightest}"
+      }
+    },
+    "Color Scheme 3": {
+      "Text": {
+        "$type": "color",
+        "$value": "{Color.White}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Color.Ship Cove Light}"
+      },
+      "Border": {
+        "$type": "color",
+        "$value": "{Opacity.White 20}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Color.White}"
+      },
+      "Foreground": {
+        "$type": "color",
+        "$value": "{Color.Ship Cove}"
+      }
+    },
+    "Color Scheme 4": {
+      "Text": {
+        "$type": "color",
+        "$value": "{Color.White}"
+      },
+      "Background": {
+        "$type": "color",
+        "$value": "{Color.Neutral Darker}"
+      },
+      "Border": {
+        "$type": "color",
+        "$value": "{Opacity.White 20}"
+      },
+      "Accent": {
+        "$type": "color",
+        "$value": "{Color.White}"
+      },
+      "Foreground": {
+        "$type": "color",
+        "$value": "{Color.Neutral Darkest}"
+      }
+    }
+  }
