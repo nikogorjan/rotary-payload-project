@@ -20,6 +20,13 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { ImpactBlock } from '@/blocks/ImpactBlock/config'
+import { RotaryInternational } from '@/blocks/RotaryInternational/config'
+import { Team } from '@/blocks/Team/config'
+import { Benefits } from '@/blocks/Benefits/config'
+import { Faq } from '@/blocks/Faq/config'
+import { Stats } from '@/blocks/Stats/config'
+import { BlogSection } from '@/blocks/BlogSection/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -75,7 +82,20 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                ImpactBlock,
+                RotaryInternational,
+                Team,
+                Benefits,
+                Faq,
+                Stats,
+                BlogSection,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,
