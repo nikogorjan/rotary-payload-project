@@ -1,20 +1,7 @@
-import type { ButtonProps } from '@relume_io/relume-ui'
 import type { Page } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
-
-type ImageProps = {
-  src: string
-  alt?: string
-}
-
-type Props = {
-  heading: string
-  description: string
-  buttons: ButtonProps[]
-  image: ImageProps
-}
 
 export const LandingHero: React.FC<Page['hero']> = ({ landingHeroProps }) => {
   return (

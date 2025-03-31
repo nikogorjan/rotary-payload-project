@@ -19,6 +19,11 @@ module.exports = {
       colors: {
         // Using primitives tokens for actual color values
         scheme1Background: primitives.Color['Spindle Lighter'].$value,
+        abbeyBackground: primitives.Color['Abbey Darkest'].$value,
+        buttercupBackground: primitives.Color['Buttercup'].$value,
+        faqBackground: primitives.Color['Abbey Darker'].$value,
+        faqBorder: primitives.Opacity['White 20'].$value,
+        spindleBackground: primitives.Color['Spindle'].$value,
         chatmansBlue: primitives.Color['Chathams Blue'].$value,
         neutralDarkest: primitives.Color['Neutral Darkest'].$value,
         neutralDarkest15: primitives.Opacity['Neutral Darkest 15'].$value,

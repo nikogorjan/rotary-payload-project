@@ -7,6 +7,13 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { ImpactBlock } from '@/blocks/ImpactBlock/Component'
+import { RotaryInternational } from './RotaryInternational/Component'
+import { Team } from './Team/Component'
+import { Benefits } from './Benefits/Component'
+import { Faq } from './Faq/Component'
+import { Stats } from './Stats/Component'
+import { BlogSection } from './BlogSection/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -14,6 +21,14 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  impact: ImpactBlock,
+  rotaryInternational: RotaryInternational,
+  team: Team,
+  benefits: Benefits,
+  faq: Faq,
+  stats: Stats,
+  Stats: Stats,
+  blogSection: BlogSection,
 }
 
 export const RenderBlocks: React.FC<{
@@ -34,7 +49,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
+                <div key={index}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>
