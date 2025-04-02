@@ -1,6 +1,7 @@
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
 import type { BlogSection as BlogSectionProps } from '@/payload-types'
+import Link from 'next/link'
 
 export const BlogSection: React.FC<BlogSectionProps> = ({
   tagline,
@@ -33,24 +34,24 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
           {(blogPosts ?? []).map((post, index) => (
             <div key={index} className="flex size-full flex-col items-center justify-start">
-              <a href={post.url} className="relative aspect-video mb-6 w-full">
+              <Link href={post.url} className="relative aspect-video mb-6 w-full">
                 <Media
                   fill
                   imgClassName="relative size-full object-cover rounded-medium"
                   priority
                   resource={post.image}
                 />
-              </a>
+              </Link>
               <div className="rb-4 mb-4 flex w-full items-center justify-start">
-                <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-karla">
+                <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-karla rounded-md">
                   {post.category}
                 </p>
                 <p className="inline text-sm font-karla">{post.readTime}</p>
               </div>
               <div className="flex w-full flex-col items-start justify-start">
-                <a className="mb-2" href={post.url}>
+                <Link className="mb-2" href={post.url}>
                   <h2 className="text-xl font-bebas md:text-2xl">{post.title}</h2>
-                </a>
+                </Link>
                 <p className="font-karla font-light">{post.description}</p>
                 <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
                   {(post.links || []).map(({ link }, i) => {

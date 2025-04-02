@@ -13,7 +13,7 @@ export const Stats: React.FC<StatsProps> = ({ heading, description, stats }) => 
 
         <div className="grid grid-cols-1 gap-y-8 md:grid-cols-3 md:gap-x-8 lg:gap-x-12 lg:gap-y-16">
           {(stats ?? []).map((stat, index) => (
-            <div key={index} className="border-l-2 border-buttercupBackground pl-8">
+            <div key={index} className="border-l-2 border-buttercupBackground pl-8 rounded-sm">
               <p className="mb-2 text-10xl font-bold leading-[1.3] md:text-[4rem] lg:text-[5rem] font-karla text-white">
                 {stat.percentage}
               </p>

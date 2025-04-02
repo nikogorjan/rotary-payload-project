@@ -28,6 +28,10 @@ export const hero: Field = {
           value: 'landingHero',
         },
         {
+          label: 'Landing Ticket',
+          value: 'landingTicket',
+        },
+        {
           label: 'High Impact',
           value: 'highImpact',
         },
@@ -106,6 +110,38 @@ export const hero: Field = {
             },
           ],
         },
+        {
+          name: 'image',
+          type: 'upload',
+          label: 'Image',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'landingTicketProps',
+      type: 'group',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'landingTicket',
+      },
+      fields: [
+        {
+          name: 'heading',
+          type: 'text',
+          label: 'Heading',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
+        linkGroup({
+          overrides: {
+            maxRows: 2,
+          },
+        }),
         {
           name: 'image',
           type: 'upload',
