@@ -91,9 +91,9 @@ const TeamMember = ({ member }: { member: TeamMemberType }) => {
       </div>
       <div className="mb-3 md:mb-4">
         <h5 className="text-md font-bebas md:text-lg">{member.name}</h5>
-        <h6 className="font-karla font-light md:text-md">{member.jobTitle}</h6>
+        <h6 className="font-karla font-normal md:text-md">{member.jobTitle}</h6>
       </div>
-      <p>{member.description}</p>
+      <p className="font-karla font-light">{member.description}</p>
     </div>
   )
 }

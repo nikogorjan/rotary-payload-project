@@ -149,7 +149,7 @@ export interface Page {
   id: string;
   title: string;
   hero: {
-    type: 'none' | 'landingHero' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type: 'none' | 'landingHero' | 'landingTicket' | 'highImpact' | 'mediumImpact' | 'lowImpact';
     landingHeroProps?: {
       tagline: {
         label: string;
@@ -185,6 +185,35 @@ export interface Page {
         martjanciLogo?: (string | null) | Media;
         rotaryLogo?: (string | null) | Media;
       };
+      image: string | Media;
+    };
+    landingTicketProps?: {
+      heading: string;
+      description?: string | null;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: string | Post;
+                  } | null);
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('default' | 'outline') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
       image: string | Media;
     };
     richText?: {
@@ -1309,6 +1338,28 @@ export interface PagesSelect<T extends boolean = true> {
                   };
               image?: T;
             };
+        landingTicketProps?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              links?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                          appearance?: T;
+                        };
+                    id?: T;
+                  };
+              image?: T;
+            };
         richText?: T;
         links?:
           | T
@@ -2106,6 +2157,26 @@ export interface Header {
  */
 export interface Footer {
   id: string;
+  logo: {
+    url?: string | null;
+    src: string | Media;
+  };
+  address: {
+    label: string;
+    value: string;
+  };
+  contact: {
+    label: string;
+    phone: string;
+    email: string;
+  };
+  socialMediaLinks?:
+    | {
+        url: string;
+        icon: 'facebook' | 'instagram' | 'twitter' | 'linkedin' | 'youtube';
+        id?: string | null;
+      }[]
+    | null;
   navItems?:
     | {
         link: {
@@ -2123,6 +2194,14 @@ export interface Footer {
           url?: string | null;
           label: string;
         };
+        id?: string | null;
+      }[]
+    | null;
+  footerText?: string | null;
+  footerLinks?:
+    | {
+        title: string;
+        url: string;
         id?: string | null;
       }[]
     | null;
@@ -2173,6 +2252,32 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
+  logo?:
+    | T
+    | {
+        url?: T;
+        src?: T;
+      };
+  address?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+      };
+  contact?:
+    | T
+    | {
+        label?: T;
+        phone?: T;
+        email?: T;
+      };
+  socialMediaLinks?:
+    | T
+    | {
+        url?: T;
+        icon?: T;
+        id?: T;
+      };
   navItems?:
     | T
     | {
@@ -2185,6 +2290,14 @@ export interface FooterSelect<T extends boolean = true> {
               url?: T;
               label?: T;
             };
+        id?: T;
+      };
+  footerText?: T;
+  footerLinks?:
+    | T
+    | {
+        title?: T;
+        url?: T;
         id?: T;
       };
   updatedAt?: T;
