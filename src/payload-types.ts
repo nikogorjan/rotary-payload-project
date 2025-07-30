@@ -149,7 +149,17 @@ export interface Page {
   id: string;
   title: string;
   hero: {
-    type: 'none' | 'landingHero' | 'landingTicket' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    type:
+      | 'none'
+      | 'landingHero'
+      | 'landingTicket'
+      | 'howToHero'
+      | 'aboutHero'
+      | 'highImpact'
+      | 'mediumImpact'
+      | 'lowImpact'
+      | 'historyHero'
+      | 'contactHero';
     landingHeroProps?: {
       tagline: {
         label: string;
@@ -187,6 +197,44 @@ export interface Page {
       };
       image: string | Media;
     };
+    contactHeroProps?: {
+      tagline: string;
+      heading: string;
+      description: string;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: string | Post;
+                  } | null);
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('default' | 'outline') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      /**
+       * Paste the full <iframe …></iframe> embed code from Google Maps
+       */
+      mapEmbed: string;
+    };
+    historyHeroProps?: {
+      heading: string;
+      description?: string | null;
+      image: string | Media;
+    };
     landingTicketProps?: {
       heading: string;
       description?: string | null;
@@ -214,6 +262,40 @@ export interface Page {
             id?: string | null;
           }[]
         | null;
+      image: string | Media;
+    };
+    aboutHeroProps?: {
+      heading: string;
+      description?: string | null;
+      links?:
+        | {
+            link: {
+              type?: ('reference' | 'custom') | null;
+              newTab?: boolean | null;
+              reference?:
+                | ({
+                    relationTo: 'pages';
+                    value: string | Page;
+                  } | null)
+                | ({
+                    relationTo: 'posts';
+                    value: string | Post;
+                  } | null);
+              url?: string | null;
+              label: string;
+              /**
+               * Choose how the link should be rendered.
+               */
+              appearance?: ('default' | 'outline') | null;
+            };
+            id?: string | null;
+          }[]
+        | null;
+      image: string | Media;
+    };
+    howToHeroProps?: {
+      heading: string;
+      description?: string | null;
       image: string | Media;
     };
     richText?: {
@@ -270,6 +352,12 @@ export interface Page {
     | Faq
     | Stats
     | BlogSection
+    | HowToBullets
+    | Expectations
+    | RotaryPledge
+    | Vrednote
+    | Timeline
+    | ContactCards
   )[];
   meta?: {
     title?: string | null;
@@ -1042,6 +1130,192 @@ export interface BlogSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HowToBullets".
+ */
+export interface HowToBullets {
+  heading: string;
+  description: string;
+  features?:
+    | {
+        content: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'howToBullets';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Expectations".
+ */
+export interface Expectations {
+  heading: string;
+  description: string;
+  sections?:
+    | {
+        icon: string | Media;
+        heading: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  buttons?:
+    | {
+        title: string;
+        url: string;
+        variant?: ('primary' | 'secondary' | 'link') | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'expectations';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RotaryPledge".
+ */
+export interface RotaryPledge {
+  headingOne: string;
+  promises?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  headingTwo: string;
+  intro: string;
+  questions?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'pledgeSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Vrednote".
+ */
+export interface Vrednote {
+  tagline: string;
+  heading: string;
+  description: string;
+  featureSections?:
+    | {
+        icon: string | Media;
+        heading: string;
+        description: string;
+        links?:
+          | {
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'posts';
+                      value: string | Post;
+                    } | null);
+                url?: string | null;
+                label: string;
+                /**
+                 * Choose how the link should be rendered.
+                 */
+                appearance?: ('default' | 'outline') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'vrednote';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Timeline".
+ */
+export interface Timeline {
+  heading: string;
+  description: string;
+  timelineItems?:
+    | {
+        heading: string;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'timeline';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactCards".
+ */
+export interface ContactCards {
+  contacts?:
+    | {
+        icon: 'email' | 'phone' | 'map';
+        title: string;
+        description: string;
+        links?:
+          | {
+              link: {
+                type?: ('reference' | 'custom') | null;
+                newTab?: boolean | null;
+                reference?:
+                  | ({
+                      relationTo: 'pages';
+                      value: string | Page;
+                    } | null)
+                  | ({
+                      relationTo: 'posts';
+                      value: string | Post;
+                    } | null);
+                url?: string | null;
+                label: string;
+                /**
+                 * Choose how the link should be rendered.
+                 */
+                appearance?: ('default' | 'outline') | null;
+              };
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contactCards';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1338,6 +1612,36 @@ export interface PagesSelect<T extends boolean = true> {
                   };
               image?: T;
             };
+        contactHeroProps?:
+          | T
+          | {
+              tagline?: T;
+              heading?: T;
+              description?: T;
+              links?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                          appearance?: T;
+                        };
+                    id?: T;
+                  };
+              mapEmbed?: T;
+            };
+        historyHeroProps?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              image?: T;
+            };
         landingTicketProps?:
           | T
           | {
@@ -1358,6 +1662,35 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     id?: T;
                   };
+              image?: T;
+            };
+        aboutHeroProps?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              links?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          newTab?: T;
+                          reference?: T;
+                          url?: T;
+                          label?: T;
+                          appearance?: T;
+                        };
+                    id?: T;
+                  };
+              image?: T;
+            };
+        howToHeroProps?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
               image?: T;
             };
         richText?: T;
@@ -1393,6 +1726,12 @@ export interface PagesSelect<T extends boolean = true> {
         faq?: T | FaqSelect<T>;
         Stats?: T | StatsSelect<T>;
         blogSection?: T | BlogSectionSelect<T>;
+        howToBullets?: T | HowToBulletsSelect<T>;
+        expectations?: T | ExpectationsSelect<T>;
+        pledgeSection?: T | RotaryPledgeSelect<T>;
+        vrednote?: T | VrednoteSelect<T>;
+        timeline?: T | TimelineSelect<T>;
+        contactCards?: T | ContactCardsSelect<T>;
       };
   meta?:
     | T
@@ -1661,6 +2000,154 @@ export interface BlogSectionSelect<T extends boolean = true> {
         image?: T;
         category?: T;
         readTime?: T;
+        title?: T;
+        description?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HowToBullets_select".
+ */
+export interface HowToBulletsSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  features?:
+    | T
+    | {
+        content?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Expectations_select".
+ */
+export interface ExpectationsSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  sections?:
+    | T
+    | {
+        icon?: T;
+        heading?: T;
+        description?: T;
+        id?: T;
+      };
+  buttons?:
+    | T
+    | {
+        title?: T;
+        url?: T;
+        variant?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RotaryPledge_select".
+ */
+export interface RotaryPledgeSelect<T extends boolean = true> {
+  headingOne?: T;
+  promises?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  headingTwo?: T;
+  intro?: T;
+  questions?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Vrednote_select".
+ */
+export interface VrednoteSelect<T extends boolean = true> {
+  tagline?: T;
+  heading?: T;
+  description?: T;
+  featureSections?:
+    | T
+    | {
+        icon?: T;
+        heading?: T;
+        description?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Timeline_select".
+ */
+export interface TimelineSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  timelineItems?:
+    | T
+    | {
+        heading?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactCards_select".
+ */
+export interface ContactCardsSelect<T extends boolean = true> {
+  contacts?:
+    | T
+    | {
+        icon?: T;
         title?: T;
         description?: T;
         links?:

@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import type React from 'react'
+import { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
@@ -14,6 +15,12 @@ import { Benefits } from './Benefits/Component'
 import { Faq } from './Faq/Component'
 import { Stats } from './Stats/Component'
 import { BlogSection } from './BlogSection/Component'
+import { HowToBullets } from './HowToBullets/Component'
+import { Expectations } from './Expectations/Component'
+import { RotaryPledge } from './RotaryPledge/Component'
+import { Vrednote } from './Vrednote/Component'
+import { Timeline } from './Timeline/Component'
+import { ContactCards } from './Contact/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -29,6 +36,12 @@ const blockComponents = {
   stats: Stats,
   Stats: Stats,
   blogSection: BlogSection,
+  howToBullets: HowToBullets,
+  expectations: Expectations,
+  pledgeSection: RotaryPledge,
+  vrednote: Vrednote,
+  timeline: Timeline,
+  contactCards: ContactCards,
 }
 
 export const RenderBlocks: React.FC<{
@@ -49,7 +62,7 @@ export const RenderBlocks: React.FC<{
 
             if (Block) {
               return (
-                <div key={index}>
+                <div key={block.id}>
                   {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </div>

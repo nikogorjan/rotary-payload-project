@@ -29,34 +29,44 @@ export default async function Page({ params: paramsPromise }: Args) {
     collection: 'posts',
     depth: 1,
     limit: 12,
+    sort: '-publishedAt',
     page: sanitizedPageNumber,
     overrideAccess: false,
   })
 
   return (
-    <div className="pt-24 pb-24">
-      <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
-        </div>
-      </div>
-
-      <div className="container mb-8">
-        <PageRange
-          collection="posts"
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
-      </div>
-
-      <CollectionArchive posts={posts.docs} />
-
+    <div className="px-[5%] pb-16 pt-32 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36 bg-scheme1Background">
       <div className="container">
-        {posts?.page && posts?.totalPages > 1 && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
-        )}
+        <PageClient />
+        <div className="rb-12 mb-12 w-full max-w-lg md:mb-18 lg:mb-20">
+          <div className="w-full max-w-lg">
+            <p className="mb-3 font-semibold md:mb-4 font-karla">Dogodki</p>
+            <h1 className="font-bebas mb-5 text-6xl md:mb-6 md:text-9xl lg:text-10xl">
+              Srce dobrodelnosti
+            </h1>
+            <p className="font-karla md:text-md">
+              Vsak dogodek nosi zgodbo o solidarnosti. Delimo trenutke, ideje in uspehe, ki kažejo,
+              kako lahko majhna dejanja ustvarijo velik učinek.
+            </p>
+          </div>
+        </div>
+
+        <div className="container mb-8">
+          <PageRange
+            collection="posts"
+            currentPage={posts.page}
+            limit={12}
+            totalDocs={posts.totalDocs}
+          />
+        </div>
+
+        <CollectionArchive posts={posts.docs} />
+
+        <div className="container">
+          {posts?.page && posts?.totalPages > 1 && (
+            <Pagination page={posts.page} totalPages={posts.totalPages} />
+          )}
+        </div>
       </div>
     </div>
   )

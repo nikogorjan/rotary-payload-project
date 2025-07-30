@@ -32,6 +32,11 @@ export const hero: Field = {
           value: 'landingTicket',
         },
         {
+          label: 'How To Hero',
+          value: 'howToHero',
+        },
+        { label: 'About Hero', value: 'aboutHero' },
+        {
           label: 'High Impact',
           value: 'highImpact',
         },
@@ -43,6 +48,8 @@ export const hero: Field = {
           label: 'Low Impact',
           value: 'lowImpact',
         },
+        { label: 'History Hero', value: 'historyHero' },
+        { label: 'Contact Hero', value: 'contactHero' },
       ],
       required: true,
     },
@@ -120,6 +127,42 @@ export const hero: Field = {
       ],
     },
     {
+      name: 'contactHeroProps',
+      type: 'group',
+      admin: { condition: (_, s) => s?.type === 'contactHero' },
+      fields: [
+        { name: 'tagline', type: 'text', label: 'Tagline', required: true },
+        { name: 'heading', type: 'text', label: 'Heading', required: true },
+        { name: 'description', type: 'textarea', label: 'Description', required: true },
+        /* single button via linkGroup */
+        linkGroup({
+          overrides: {
+            maxRows: 1,
+            labels: { singular: 'Button', plural: 'Button' },
+          },
+        }),
+        {
+          name: 'mapEmbed',
+          type: 'textarea',
+          label: 'Google Maps embed iframe',
+          required: true,
+          admin: {
+            description: 'Paste the full <iframe …></iframe> embed code from Google Maps',
+          },
+        },
+      ],
+    },
+    {
+      name: 'historyHeroProps',
+      type: 'group',
+      admin: { condition: (_, s) => s?.type === 'historyHero' },
+      fields: [
+        { name: 'heading', type: 'text', label: 'Heading', required: true },
+        { name: 'description', type: 'textarea', label: 'Description' },
+        { name: 'image', type: 'upload', relationTo: 'media', label: 'Image', required: true },
+      ],
+    },
+    {
       name: 'landingTicketProps',
       type: 'group',
       admin: {
@@ -142,6 +185,44 @@ export const hero: Field = {
             maxRows: 2,
           },
         }),
+        {
+          name: 'image',
+          type: 'upload',
+          label: 'Image',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'aboutHeroProps',
+      type: 'group',
+      admin: { condition: (_, s) => s?.type === 'aboutHero' },
+      fields: [
+        { name: 'heading', type: 'text', label: 'Heading', required: true },
+        { name: 'description', type: 'textarea', label: 'Description' },
+        linkGroup({ overrides: { maxRows: 2 } }),
+        { name: 'image', type: 'upload', label: 'Image', relationTo: 'media', required: true },
+      ],
+    },
+    {
+      name: 'howToHeroProps',
+      type: 'group',
+      admin: {
+        condition: (_, siblingData) => siblingData?.type === 'howToHero',
+      },
+      fields: [
+        {
+          name: 'heading',
+          type: 'text',
+          label: 'Heading',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
         {
           name: 'image',
           type: 'upload',

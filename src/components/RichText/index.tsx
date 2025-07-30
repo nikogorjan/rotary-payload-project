@@ -1,17 +1,17 @@
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import {
+import type {
   DefaultNodeTypes,
   SerializedBlockNode,
   SerializedLinkNode,
-  type DefaultTypedEditorState,
+  DefaultTypedEditorState,
 } from '@payloadcms/richtext-lexical'
 import {
-  JSXConvertersFunction,
+  type JSXConvertersFunction,
   LinkJSXConverter,
   RichText as ConvertRichText,
 } from '@payloadcms/richtext-lexical/react'
 
-import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
+import { CodeBlock, type CodeBlockProps } from '@/blocks/Code/Component'
 
 import type {
   BannerBlock as BannerBlockProps,
@@ -27,6 +27,7 @@ type NodeTypes =
   | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
+  // biome-ignore lint/style/noNonNullAssertion: <explanation>
   const { value, relationTo } = linkNode.fields.doc!
   if (typeof value !== 'object') {
     throw new Error('Expected value to be an object')

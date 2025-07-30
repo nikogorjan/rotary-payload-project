@@ -2,11 +2,13 @@
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
-import React, { Fragment } from 'react'
+import type React from 'react'
+import { Fragment } from 'react'
 
 import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
+import { CMSLink } from '@/components/Link'
 
 export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
 
@@ -32,16 +34,22 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
+        'bg-white border border-neutralDarkest15 rounded-xl rb-12 mb-12 md:mb-16',
         className,
       )}
-      ref={card.ref}
     >
       <div className="relative w-full ">
         {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
+        {metaImage && typeof metaImage !== 'string' && (
+          <Link
+            href={href}
+            className="block h-full w-full overflow-hidden rounded-lg" // <– 1. ovojnica
+          >
+            <Media resource={metaImage} imgClassName="h-full w-full object-cover aspect-[3/2]" />
+          </Link>
+        )}
       </div>
-      <div className="p-4">
+      <div className="p-6">
         {showCategories && hasCategories && (
           <div className="uppercase text-sm mb-4">
             {showCategories && hasCategories && (
@@ -55,9 +63,9 @@ export const Card: React.FC<{
                     const isLast = index === categories.length - 1
 
                     return (
-                      <Fragment key={index}>
+                      <Fragment key={category.id}>
                         {categoryTitle}
-                        {!isLast && <Fragment>, &nbsp;</Fragment>}
+                        {!isLast && ', &nbsp;'}
                       </Fragment>
                     )
                   }
@@ -70,14 +78,15 @@ export const Card: React.FC<{
         )}
         {titleToUse && (
           <div className="prose">
-            <h3>
-              <Link className="not-prose" href={href} ref={link.ref}>
-                {titleToUse}
-              </Link>
-            </h3>
+            <h3 className="font-bebas font-normal">{titleToUse}</h3>
           </div>
         )}
-        {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
+        {description && (
+          <div className="mt-2 font-karla">{description && <p>{sanitizedDescription}</p>}</div>
+        )}
+        <div className="mt-2 flex items-start justify-start">
+          <CMSLink type="custom" url={href} appearance="blogLink" label="Preberi več" />
+        </div>
       </div>
     </article>
   )

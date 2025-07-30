@@ -27,6 +27,12 @@ import { Benefits } from '@/blocks/Benefits/config'
 import { Faq } from '@/blocks/Faq/config'
 import { Stats } from '@/blocks/Stats/config'
 import { BlogSection } from '@/blocks/BlogSection/config'
+import { HowToBullets } from '@/blocks/HowToBullets/config'
+import { Expectations } from '@/blocks/Expectations/config'
+import { RotaryPledge } from '@/blocks/RotaryPledge/config'
+import { Vrednote } from '@/blocks/Vrednote/config'
+import { Timeline } from '@/blocks/Timeline/config'
+import { ContactCards } from '@/blocks/Contact/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -95,6 +101,12 @@ export const Pages: CollectionConfig<'pages'> = {
                 Faq,
                 Stats,
                 BlogSection,
+                HowToBullets,
+                Expectations,
+                RotaryPledge,
+                Vrednote,
+                Timeline,
+                ContactCards,
               ],
               required: true,
               admin: {

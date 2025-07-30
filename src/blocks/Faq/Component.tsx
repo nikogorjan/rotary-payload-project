@@ -16,7 +16,7 @@ export const Faq: React.FC<FaqProps> = ({ heading, description, questions }) => 
         <Accordion type="multiple" className="grid items-start justify-stretch gap-4">
           {(questions ?? []).map((question, index) => (
             <AccordionItem
-              key={index}
+              key={question.id}
               value={`item-${index}`}
               className="border border-faqBorder rounded-medium px-5 md:px-6 bg-faqBackground"
             >
