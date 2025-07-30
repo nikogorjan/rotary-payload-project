@@ -1,7 +1,6 @@
 'use client'
 
 import type { ContactCards as ContactCardsBlock } from '@/payload-types'
-import { CMSLink } from '@/components/Link'
 import { BiEnvelope, BiPhone, BiMap } from 'react-icons/bi'
 
 const iconMap = {

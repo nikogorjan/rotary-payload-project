@@ -17,7 +17,7 @@ export const HowToBullets: React.FC<HowToBulletsProps> = ({ heading, description
             <p className="mb-5 md:mb-6 md:text-md text-white">{description}</p>
 
             <ul className="my-4 list-decimal pl-5 text-white">
-              {(features ?? []).map((feature, index) => (
+              {(features ?? []).map((feature) => (
                 <li key={feature.id} className="my-1 self-start pl-2">
                   <RichText
                     data={feature.content}

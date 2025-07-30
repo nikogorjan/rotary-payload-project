@@ -25,7 +25,7 @@ export const AboutHero: React.FC<Page['hero']> = ({ aboutHeroProps }) => {
 
               {Array.isArray(links) && links.length > 0 && (
                 <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-                  {(links ?? []).map(({ link }, i) => (
+                  {(links ?? []).map(({ link }) => (
                     <CMSLink key={link.label} {...link} className="w-full sm:w-auto" />
                   ))}
                 </div>

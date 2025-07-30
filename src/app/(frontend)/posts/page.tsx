@@ -29,7 +29,7 @@ export default async function Page() {
     },
   })
 
-  const [featuredPost, ...otherPosts] = posts.docs
+  const [featuredPost] = posts.docs
 
   return (
     <div className="px-[5%] pb-16 pt-32 md:pb-24 md:pt-32 lg:pb-28 lg:pt-36 bg-scheme1Background">

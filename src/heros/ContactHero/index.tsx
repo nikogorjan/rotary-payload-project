@@ -2,26 +2,22 @@
 
 import { Button, Checkbox, Input, Label, Textarea } from '@relume_io/relume-ui'
 import type { Page } from '@/payload-types'
-import { CMSLink } from '@/components/Link'
 import { useState } from 'react'
 
 export const ContactHero: React.FC<Page['hero']> = ({ contactHeroProps }) => {
   if (!contactHeroProps) return null
-
-  const { tagline, heading, description, links, mapEmbed } = contactHeroProps
-
-  /* form state ---------------------------------------------------------- */
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [acceptTerms, setAcceptTerms] = useState<boolean | 'indeterminate'>(false)
+  const { tagline, heading, description, mapEmbed } = contactHeroProps
+
+  /* form state ---------------------------------------------------------- */
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log({ name, email, message, acceptTerms })
   }
-
-  const primaryLink = links?.[0]?.link // single button from linkGroup
 
   return (
     <section

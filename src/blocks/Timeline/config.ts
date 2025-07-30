@@ -1,5 +1,4 @@
 import type { Block } from 'payload'
-import { linkGroup } from '@/fields/linkGroup'
 
 /**
  * Timeline section with scroll‑animated dots (a.k.a. “Timeline 6”)
