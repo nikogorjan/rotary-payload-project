@@ -5,11 +5,12 @@ import type { Page } from '@/payload-types'
 import { useState } from 'react'
 
 export const ContactHero: React.FC<Page['hero']> = ({ contactHeroProps }) => {
-  if (!contactHeroProps) return null
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [acceptTerms, setAcceptTerms] = useState<boolean | 'indeterminate'>(false)
+  if (!contactHeroProps) return null
+
   const { tagline, heading, description, mapEmbed } = contactHeroProps
 
   /* form state ---------------------------------------------------------- */

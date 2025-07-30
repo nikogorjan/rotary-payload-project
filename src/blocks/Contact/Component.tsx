@@ -16,7 +16,7 @@ export const ContactCards: React.FC<ContactCardsBlock> = ({ contacts }) => {
     <section id="contact-cards" className="px-[5%] py-16 md:py-24 lg:py-28 bg-chatmansBlue">
       <div className="container">
         <div className="grid auto-cols-fr grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-3 md:gap-y-16">
-          {contacts.map(({ id, icon, title, description, links }) => (
+          {contacts.map(({ id, icon, title, description }) => (
             <div key={id}>
               <div className="mb-5 lg:mb-6  text-white">
                 {iconMap[icon as keyof typeof iconMap]}
