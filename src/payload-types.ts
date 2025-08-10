@@ -358,6 +358,8 @@ export interface Page {
     | Vrednote
     | Timeline
     | ContactCards
+    | HistoryStats
+    | HistoryPresidents
   )[];
   meta?: {
     title?: string | null;
@@ -1316,6 +1318,70 @@ export interface ContactCards {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoryStats".
+ */
+export interface HistoryStats {
+  tagline: string;
+  heading: string;
+  description: string;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  stats?:
+    | {
+        percentage: string;
+        heading: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'historyStats';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoryPresidents".
+ */
+export interface HistoryPresidents {
+  heading: string;
+  description: string;
+  presidents?:
+    | {
+        name: string;
+        /**
+         * Uporabite obliko: YYYY–YYYY (en-dash, ne vezaj)
+         */
+        term: string;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'historyPresidents';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1732,6 +1798,8 @@ export interface PagesSelect<T extends boolean = true> {
         vrednote?: T | VrednoteSelect<T>;
         timeline?: T | TimelineSelect<T>;
         contactCards?: T | ContactCardsSelect<T>;
+        historyStats?: T | HistoryStatsSelect<T>;
+        historyPresidents?: T | HistoryPresidentsSelect<T>;
       };
   meta?:
     | T
@@ -2165,6 +2233,56 @@ export interface ContactCardsSelect<T extends boolean = true> {
                   };
               id?: T;
             };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoryStats_select".
+ */
+export interface HistoryStatsSelect<T extends boolean = true> {
+  tagline?: T;
+  heading?: T;
+  description?: T;
+  links?:
+    | T
+    | {
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        id?: T;
+      };
+  stats?:
+    | T
+    | {
+        percentage?: T;
+        heading?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HistoryPresidents_select".
+ */
+export interface HistoryPresidentsSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  presidents?:
+    | T
+    | {
+        name?: T;
+        term?: T;
         id?: T;
       };
   id?: T;

@@ -21,6 +21,8 @@ import { RotaryPledge } from './RotaryPledge/Component'
 import { Vrednote } from './Vrednote/Component'
 import { Timeline } from './Timeline/Component'
 import { ContactCards } from './Contact/Component'
+import { HistoryStats } from './HistoryStats/Component'
+import { HistoryPresidents } from './HistoryPresidents/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -42,6 +44,8 @@ const blockComponents = {
   vrednote: Vrednote,
   timeline: Timeline,
   contactCards: ContactCards,
+  historyStats: HistoryStats,
+  historyPresidents: HistoryPresidents,
 }
 
 export const RenderBlocks: React.FC<{

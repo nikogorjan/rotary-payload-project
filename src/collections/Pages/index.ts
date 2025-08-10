@@ -33,6 +33,8 @@ import { RotaryPledge } from '@/blocks/RotaryPledge/config'
 import { Vrednote } from '@/blocks/Vrednote/config'
 import { Timeline } from '@/blocks/Timeline/config'
 import { ContactCards } from '@/blocks/Contact/config'
+import { HistoryStats } from '@/blocks/HistoryStats/config'
+import { HistoryPresidents } from '@/blocks/HistoryPresidents/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -107,6 +109,8 @@ export const Pages: CollectionConfig<'pages'> = {
                 Vrednote,
                 Timeline,
                 ContactCards,
+                HistoryStats,
+                HistoryPresidents,
               ],
               required: true,
               admin: {
