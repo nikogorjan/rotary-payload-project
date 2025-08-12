@@ -1,14 +1,14 @@
 import React from 'react'
 
 const defaultLabels = {
-  plural: 'Docs',
-  singular: 'Doc',
+  plural: 'dokumentov',
+  singular: 'dokument',
 }
 
 const defaultCollectionLabels = {
   posts: {
-    plural: 'Posts',
-    singular: 'Post',
+    plural: 'objav',
+    singular: 'objava',
   },
 }
 
@@ -49,7 +49,7 @@ export const PageRange: React.FC<{
       {(typeof totalDocs === 'undefined' || totalDocs === 0) && 'Search produced no results.'}
       {typeof totalDocs !== 'undefined' &&
         totalDocs > 0 &&
-        `Showing ${indexStart}${indexStart > 0 ? ` - ${indexEnd}` : ''} of ${totalDocs} ${
+        `Prikazanih ${indexStart}${indexStart > 0 ? ` - ${indexEnd}` : ''} od ${totalDocs} ${
           totalDocs > 1 ? plural : singular
         }`}
     </div>
